@@ -1,0 +1,43 @@
+<h2>
+  Form Group
+</h2>
+
+<form [formGroup]="form">
+  <div class="form-group">
+    <label>
+      Title:
+      <select class="form-control" formControlName="title">
+        <option>Mr.</option>
+        <option>Mrs.</option>
+        <option>Ms.</option>
+        <option>Dr.</option>
+        <option>Sgt.</option>
+        <option>Gnl.</option>
+      </select>
+    </label>
+  </div>
+  <div class="form-group">
+    <label>
+      Name:
+      <input class="form-control" formControlName="name" trim>
+    </label>
+  </div>
+  <div class="form-group">
+    <label>
+      Address:
+      <input class="form-control" formControlName="address" trim>
+    </label>
+  </div>
+  <div class="form-group">
+    <button (click)="doNothing()">Submit</button>
+    <!--<button [disabled]="form.invalid" (click)="doNothing()">Submit</button>-->
+  </div>
+</form>
+
+<p>Form value: {{ form.value | json }}</p>
+
+<p>Form valid: {{ form.valid }}</p>
+
+<pre>
+{{source}}
+</pre>

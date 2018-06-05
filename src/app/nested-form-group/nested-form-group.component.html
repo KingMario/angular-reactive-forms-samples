@@ -1,0 +1,45 @@
+<h2>
+  Nested Form Group
+</h2>
+
+<form [formGroup]="form">
+  <div class="form-group" formGroupName="endpoint">
+    <label>
+      Endpoint:
+      <div class="row">
+        <div class="col-xs-9">
+          <input class="form-control" placeholder="host" formControlName="host">
+        </div>
+        <div class="col-xs-3">
+          <input class="form-control" placeholder="port" formControlName="port">
+        </div>
+      </div>
+    </label>
+  </div>
+  <label class="form-group">
+    <input type="checkbox" formControlName="modifyCredentials">
+    Modify credentials
+  </label>
+  <div class="well" formGroupName="credentials">
+    <div class="form-group">
+      <label>
+        Username:
+        <input class="form-control" formControlName="username">
+      </label>
+    </div>
+    <div class="form-group">
+      <label>
+        Password:
+        <input class="form-control" formControlName="password">
+      </label>
+    </div>
+  </div>
+</form>
+
+<p>Form value: {{ form.value | json }}</p>
+
+<p>Form raw value: {{ form.getRawValue() | json }}</p>
+
+<pre>
+{{source}}
+</pre>

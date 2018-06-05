@@ -1,0 +1,21 @@
+<h2>
+  Form Builder
+</h2>
+
+<form [formGroup]="form">
+  <div class="form-group">
+    <app-switch formControlName="payment" label="Payment" (click)="paymentChanged()"></app-switch>
+  </div>
+  <div class="form-group">
+    <label>
+      Credit Card Number:
+      <input class="form-control" formControlName="creditCard" [cleave]="{creditCard: true}">
+    </label>
+  </div>
+</form>
+
+<p>Form value: {{ form.value | json }}</p>
+
+<pre>
+{{source}}
+</pre>

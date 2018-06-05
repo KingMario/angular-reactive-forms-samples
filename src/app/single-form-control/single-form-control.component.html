@@ -1,0 +1,22 @@
+<h2>
+  Single Form Control
+</h2>
+
+<p>
+  ID:
+  <input [formControl]="id" upperCase>
+</p>
+
+<p>
+  <button (click)="id.setErrors({weirdError: true})">Set Errors</button>
+</p>
+
+<p>Field value: {{ id.value | json }}</p>
+
+<p>Field status: {{id.status}}</p>
+
+<p>Field errors: {{id.errors | json}}</p>
+
+<pre>
+{{source}}
+</pre>
