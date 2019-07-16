@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 import { lineSeparator, preSource, sourceAssignmentRegExp, utilImportsRegExp } from '../sourceUtils';
 
@@ -35,7 +35,7 @@ export class FormGroupComponent implements OnInit {
     require('./form-group.component.html')
       .replace(preSource, '');
 
-  constructor (private formBuilder: FormBuilder) {}
+  constructor () {}
 
   doNothing () {}
 
