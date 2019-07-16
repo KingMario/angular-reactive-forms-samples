@@ -36,7 +36,7 @@ export class SingleFormControlComponent implements OnInit {
               tooSmall: {
                 minimal: min,
                 actualValue: value,
-              }
+              },
             };
           }
 
@@ -62,7 +62,7 @@ export class SingleFormControlComponent implements OnInit {
   source = require('!raw-loader!./single-form-control.component.ts')
       .replace(utilImportsRegExp, '')
       .replace(sourceAssignmentRegExp, '') + lineSeparator +
-    require('./single-form-control.component.html')
+    require('!raw-loader!./single-form-control.component.html')
       .replace(preSource, '');
 
   constructor () {}

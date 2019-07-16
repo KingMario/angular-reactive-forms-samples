@@ -63,7 +63,7 @@ export class NestedFormGroupComponent implements OnInit, OnDestroy {
   source = require('!raw-loader!./nested-form-group.component.ts')
       .replace(utilImportsRegExp, '')
       .replace(sourceAssignmentRegExp, '') + lineSeparator +
-    require('./nested-form-group.component.html')
+    require('!raw-loader!./nested-form-group.component.html')
       .replace(preSource, '');
 
   _subscription: Subscription;

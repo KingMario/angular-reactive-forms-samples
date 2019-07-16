@@ -32,7 +32,7 @@ export class FormGroupComponent implements OnInit {
   source = require('!raw-loader!./form-group.component.ts')
       .replace(utilImportsRegExp, '')
       .replace(sourceAssignmentRegExp, '') + lineSeparator +
-    require('./form-group.component.html')
+    require('!raw-loader!./form-group.component.html')
       .replace(preSource, '');
 
   constructor () {}

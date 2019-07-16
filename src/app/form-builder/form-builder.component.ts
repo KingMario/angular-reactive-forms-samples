@@ -20,7 +20,7 @@ export class FormBuilderComponent implements OnInit {
   source = require('!raw-loader!./form-builder.component.ts')
       .replace(utilImportsRegExp, '')
       .replace(sourceAssignmentRegExp, '') + lineSeparator +
-    require('./form-builder.component.html')
+    require('!raw-loader!./form-builder.component.html')
       .replace(preSource, '');
 
   constructor (private formBuilder: FormBuilder) {}
