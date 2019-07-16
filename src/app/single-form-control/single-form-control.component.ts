@@ -29,18 +29,28 @@ export class SingleFormControlComponent implements OnInit {
           return null;
         },
         (c: AbstractControl) => {
-          if (parseInt(c.value.substr(1), 10) < 900) {
+          const value = parseInt(c.value.substr(1), 10);
+          const min = 900;
+          if (value < min) {
             return {
-              error: true,
+              tooSmall: {
+                minimal: min,
+                actualValue: value,
+              }
             };
           }
 
           return null;
         },
         (c: AbstractControl) => {
-          if (parseInt(c.value.substr(1), 10) > 900000) {
+          const value = parseInt(c.value.substr(1), 10);
+          const max = 900000;
+          if (value > max) {
             return {
-              error: true,
+              tooLarge: {
+                maximal: max,
+                actualValue: value,
+              },
             };
           }
 
