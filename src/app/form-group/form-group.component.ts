@@ -1,10 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
-import { lineSeparator, preSource, sourceAssignmentRegExp, utilImportsRegExp } from '../sourceUtils';
-
-declare const require;
-
 @Component({
   selector: 'app-form-group',
   templateUrl: './form-group.component.html',
@@ -29,16 +25,13 @@ export class FormGroupComponent implements OnInit {
     updateOn: 'submit',
   });
 
-  source = require('!raw-loader!./form-group.component.ts')
-      .replace(utilImportsRegExp, '')
-      .replace(sourceAssignmentRegExp, '') + lineSeparator +
-    require('!raw-loader!./form-group.component.html')
-      .replace(preSource, '');
+  constructor(){
+  }
 
-  constructor () {}
+  doNothing(){
+  }
 
-  doNothing () {}
-
-  ngOnInit () {}
+  ngOnInit(){
+  }
 
 }

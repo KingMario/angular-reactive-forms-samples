@@ -16,38 +16,41 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 export class SwitchComponent implements ControlValueAccessor {
   @Input() label = 'switch';
 
-  @Input() set value (value: boolean) {
+  @Input() set value(value: boolean){
     this._value = value;
     this.onChange(value);
     this.onTouched();
   }
 
-  get value (): boolean {
+  get value(): boolean{
     return this._value;
   }
 
   private _value: boolean;
 
-  onChange = (_: boolean) => {};
-  onTouched = () => {};
+  onChange = (_: boolean) => {
+  };
+  onTouched = () => {
+  };
 
-  constructor () {}
+  constructor(){
+  }
 
-  registerOnChange (fn) {
+  registerOnChange(fn){
     this.onChange = fn;
   }
 
-  writeValue (value) {
+  writeValue(value){
     if (value) {
       this.value = value;
     }
   }
 
-  registerOnTouched (fn) {
+  registerOnTouched(fn){
     this.onTouched = fn;
   }
 
-  switch () {
+  switch(){
     this.value = !this.value;
   }
 }

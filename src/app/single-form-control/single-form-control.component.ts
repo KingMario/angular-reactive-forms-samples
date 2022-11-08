@@ -1,10 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators, AbstractControl } from '@angular/forms';
 
-import { lineSeparator, preSource, sourceAssignmentRegExp, utilImportsRegExp } from '../sourceUtils';
-
-declare const require;
-
 @Component({
   selector: 'app-hero-detail',
   templateUrl: './single-form-control.component.html',
@@ -59,14 +55,10 @@ export class SingleFormControlComponent implements OnInit {
       ],
   });
 
-  source = require('!raw-loader!./single-form-control.component.ts')
-      .replace(utilImportsRegExp, '')
-      .replace(sourceAssignmentRegExp, '') + lineSeparator +
-    require('!raw-loader!./single-form-control.component.html')
-      .replace(preSource, '');
+  constructor(){
+  }
 
-  constructor () {}
-
-  ngOnInit () {}
+  ngOnInit(){
+  }
 
 }

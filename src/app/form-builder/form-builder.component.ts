@@ -1,10 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 
-import { lineSeparator, preSource, sourceAssignmentRegExp, utilImportsRegExp } from '../sourceUtils';
-
-declare const require;
-
 @Component({
   selector: 'app-form-builder',
   templateUrl: './form-builder.component.html',
@@ -17,18 +13,12 @@ export class FormBuilderComponent implements OnInit {
     creditCard: '',
   });
 
-  source = require('!raw-loader!./form-builder.component.ts')
-      .replace(utilImportsRegExp, '')
-      .replace(sourceAssignmentRegExp, '') + lineSeparator +
-    require('!raw-loader!./form-builder.component.html')
-      .replace(preSource, '');
+  constructor(private formBuilder: FormBuilder){
+  }
 
-  constructor (private formBuilder: FormBuilder) {}
-
-  paymentChanged () {
+  paymentChanged(){
     if (!this.form.value.payment) {
-      this.form.get('creditCard').reset({
-        value: '',
+      this.form.get('creditCard').reset('', {
         disabled: true,
       });
     } else {
@@ -36,7 +26,7 @@ export class FormBuilderComponent implements OnInit {
     }
   }
 
-  ngOnInit () {
+  ngOnInit(){
   }
 
 }

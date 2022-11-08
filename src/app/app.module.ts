@@ -34,4 +34,5 @@ import { FormBuilderComponent } from './form-builder/form-builder.component';
   providers: [],
   bootstrap: [ AppComponent ],
 })
-export class AppModule {}
+export class AppModule {
+}

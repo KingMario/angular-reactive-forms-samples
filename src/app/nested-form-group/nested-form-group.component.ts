@@ -3,10 +3,6 @@ import { FormGroup, FormControl, Validators, AbstractControl } from '@angular/fo
 
 import { Subscription } from 'rxjs';
 
-import { lineSeparator, preSource, sourceAssignmentRegExp, utilImportsRegExp } from '../sourceUtils';
-
-declare const require;
-
 @Component({
   selector: 'app-nested-form-group',
   templateUrl: './nested-form-group.component.html',
@@ -60,17 +56,12 @@ export class NestedFormGroupComponent implements OnInit, OnDestroy {
     credentials: this.credentials,
   });
 
-  source = require('!raw-loader!./nested-form-group.component.ts')
-      .replace(utilImportsRegExp, '')
-      .replace(sourceAssignmentRegExp, '') + lineSeparator +
-    require('!raw-loader!./nested-form-group.component.html')
-      .replace(preSource, '');
-
   _subscription: Subscription;
 
-  constructor () {}
+  constructor(){
+  }
 
-  ngOnInit () {
+  ngOnInit(){
     this._subscription = this.modifyCredentials.valueChanges.subscribe((modifyCredentials) => {
       if (modifyCredentials) {
         this.credentials.enable();
@@ -80,7 +71,7 @@ export class NestedFormGroupComponent implements OnInit, OnDestroy {
     });
   }
 
-  ngOnDestroy () {
+  ngOnDestroy(){
     this._subscription.unsubscribe();
   }
 
